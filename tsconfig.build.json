@@ -1,7 +1,23 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*"],
-  "exclude": ["src/**/*.test.*", "./src/test.ts"],
+  "include": [
+    "src/plugins/**/*",
+    "src/nextjs/**/*",
+    "src/client/**/*",
+    "src/component/**/*",
+    "src/react/**/*",
+    "src/react-start/**/*",
+    "src/utils/**/*",
+    "src/auth.ts"
+  ],
+  "exclude": [
+    "src/**/*.test.*",
+    "./src/test.ts",
+    "src/auth.ts",
+    "examples/**",
+    "src/**/*.test.ts",
+    "**/*.test.ts"
+  ],
   "compilerOptions": {
     "module": "ESNext",
     "moduleResolution": "Bundler"

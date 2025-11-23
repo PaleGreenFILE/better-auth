@@ -1,5 +1,5 @@
 {
-  "name": "@convex-better-auth/convex-better-auth",
+  "name": "convex-better-auth-oidc",
   "description": "Better Auth component for Convex with OIDC-compliant JWT support and Better Auth 1.4.1+ compatibility",
   "repository": {
     "type": "git",

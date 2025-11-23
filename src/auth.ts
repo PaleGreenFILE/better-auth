@@ -14,7 +14,7 @@ import {
   username,
 } from "better-auth/plugins";
 import { convex } from "./plugins";
-import { passkey } from "better-auth/plugins/passkey";
+// import { passkey } from "better-auth/plugins/passkey"; // Commenté car non disponible
 import { convexAdapter } from "./client";
 
 // This is the config used to generate the schema
@@ -33,7 +33,7 @@ const options = {
     phoneNumber(),
     magicLink({ sendMagicLink: async () => {} }),
     emailOTP({ sendVerificationOTP: async () => {} }),
-    passkey(),
+    // passkey() // Commenté car non disponible,
     genericOAuth({
       config: [
         {
