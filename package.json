@@ -1,12 +1,15 @@
 {
-  "name": "@convex-dev/better-auth",
-  "description": "A Better Auth component for Convex.",
-  "repository": "github:get-convex/better-auth",
+  "name": "@convex-better-auth/convex-better-auth",
+  "description": "Better Auth component for Convex with OIDC-compliant JWT support and Better Auth 1.4.1+ compatibility",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaleGreenFILE/better-auth.git"
+  },
   "homepage": "https://github.com/get-convex/better-auth#readme",
   "bugs": {
     "url": "https://github.com/get-convex/better-auth/issues"
   },
-  "version": "0.9.7",
+  "version": "1.0.0",
   "license": "Apache-2.0",
   "keywords": [
     "convex",
@@ -89,7 +92,7 @@
     }
   },
   "peerDependencies": {
-    "better-auth": "1.3.34",
+    "better-auth": "^1.4.1",
     "convex": "^1.28.2",
     "react": "^18.3.1 || ^19.0.0",
     "react-dom": "^18.3.1 || ^19.0.0"

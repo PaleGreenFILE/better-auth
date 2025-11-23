@@ -9,6 +9,31 @@ import {
 
 export const JWT_COOKIE_NAME = "convex_jwt";
 
+/**
+ * Récupère l'URL Convex Site (issuer pour le JWT)
+ */
+const getConvexSiteUrl = (): string => {
+  if (getConvexSiteUrl()) {
+    return getConvexSiteUrl();
+  }
+
+  const convexUrl = process.env.CONVEX_URL;
+  if (convexUrl && convexUrl.includes(".convex.cloud")) {
+    return convexUrl.replace(".convex.cloud", ".convex.site");
+  }
+
+  const nextPublicConvexUrl = process.env.NEXT_PUBLIC_CONVEX_URL;
+  if (nextPublicConvexUrl && nextPublicConvexUrl.includes(".convex.cloud")) {
+    return nextPublicConvexUrl.replace(".convex.cloud", ".convex.site");
+  }
+
+  throw new Error(
+    "CONVEX_SITE_URL or CONVEX_URL (or NEXT_PUBLIC_CONVEX_URL) must be defined in environment variables."
+  );
+};
+
+
+
 export const convex = (
   opts: {
     jwtExpirationSeconds?: number;
@@ -20,13 +45,13 @@ export const convex = (
   const oidcProvider = oidcProviderPlugin({
     loginPage: "/not-used",
     metadata: {
-      issuer: `${process.env.CONVEX_SITE_URL}`,
-      jwks_uri: `${process.env.CONVEX_SITE_URL}${opts.options?.basePath ?? "/api/auth"}/convex/jwks`,
+      issuer: `${getConvexSiteUrl()}`,
+      jwks_uri: `${getConvexSiteUrl()}${opts.options?.basePath ?? "/api/auth"}/convex/jwks`,
     },
   });
   const jwt = jwtPlugin({
     jwt: {
-      issuer: `${process.env.CONVEX_SITE_URL}`,
+      issuer: `${getConvexSiteUrl()}`,
       audience: "convex",
       expirationTime: `${jwtExpirationSeconds}s`,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars

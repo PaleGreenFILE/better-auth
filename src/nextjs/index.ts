@@ -1,3 +1,4 @@
+import { toNextJsHandler } from "better-auth/next-js";
 import { createCookieGetter } from "better-auth/cookies";
 import { JWT_COOKIE_NAME } from "../plugins/convex";
 import { CreateAuth, getStaticAuth } from "../client";
